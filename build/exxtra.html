@@ -7,6 +7,74 @@
     <title>Document</title>
 </head>
 <body>
+
+<!-- Preloader -->
+<style>
+  /* container */
+  #site-preloader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 99999;
+    transition: background 0.3s ease;
+  }
+
+  /* set up theme variables */
+  /* :root {
+    --preloader-bg: #ffffff; 
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --preloader-bg: #000000; 
+    }
+  } */
+
+  /* logo animation: pulse */
+  #site-preloader img {
+    max-width: 80vw;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    animation: logo-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes logo-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.7; transform: scale(1.05); }
+  }
+
+  /* fade out preloader */
+  @keyframes preloader-fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  #site-preloader.fade-out {
+    animation: preloader-fade 1s ease forwards;
+  }
+</style>
+
+<div id="site-preloader">
+  <img src="./assets/img/logo.png" alt="Elysian Paris Logo">
+</div>
+
+<script>
+(function(){
+  var pre = document.getElementById('site-preloader');
+  if (!pre) return;
+
+  // after 10s, fade out
+  setTimeout(function(){
+    pre.classList.add('fade-out');
+    // then remove after animation
+    pre.addEventListener('animationend', function(){
+      if (pre && pre.parentNode) pre.parentNode.removeChild(pre);
+    });
+  }, 5000);
+})();
+</script>
     
 <!-- Navbar -->
 <nav class="w-full">
