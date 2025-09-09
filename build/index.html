@@ -82,7 +82,7 @@
     pre.addEventListener('animationend', function(){
       if (pre && pre.parentNode) pre.parentNode.removeChild(pre);
     });
-  }, 1000);
+  }, 3000);
 })();
 </script>
 
@@ -114,7 +114,7 @@
         title="Toggle dark mode">
   <!-- Sun (light mode) -->
   <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="w-6 h-6" role="img" aria-hidden="false">
+       class="w-6 h-6 text-[#B8A16B]" role="img" aria-hidden="false">
     <title>Light mode</title>
     <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
@@ -131,7 +131,7 @@
 
   <!-- Moon (dark mode) -->
   <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="w-6 h-6 hidden" role="img" aria-hidden="true">
+       class="w-6 h-6 hidden text-[#B8A16B]" role="img" aria-hidden="true">
     <title>Dark mode</title>
     <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
   </svg>
@@ -159,13 +159,13 @@
       <li><a href="About" class="text-[#B8A16B] text-lg font-normal">About</a></li>
       <li><a href="Services" class="text-[#B8A16B] text-lg font-normal">Services</a></li>
       <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq" class="text-[#B8A16B] text-lg font-normal">Book Now</a></li>
-      <!-- Dark Mode Toggle (replace your old dark-toggle button with this) -->
+            <!-- Dark Mode Toggle (replace your old dark-toggle button with this) -->
 <button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode"
         class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none"
         title="Toggle dark mode">
   <!-- Sun (light mode) -->
   <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="w-6 h-6" role="img" aria-hidden="false">
+       class="w-6 h-6 text-[#B8A16B]" role="img" aria-hidden="false">
     <title>Light mode</title>
     <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
@@ -182,10 +182,11 @@
 
   <!-- Moon (dark mode) -->
   <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="w-6 h-6 hidden" role="img" aria-hidden="true">
+       class="w-6 h-6 hidden text-[#B8A16B]" role="img" aria-hidden="true">
     <title>Dark mode</title>
     <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
   </svg>
+</button>
 </button>
     </ul>
   </div>
@@ -809,52 +810,61 @@ own skin."</p>
       counters.forEach((counter) => runCounter(counter));
     </script>
       
-<!-- navbar JS -->
+<!-- Navbar JS -->
 <script>
-  // Elements
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const lines = menuBtn.querySelectorAll('span');
   const darkToggle = document.getElementById('dark-toggle');
   const sunIcon = document.getElementById('icon-sun');
   const moonIcon = document.getElementById('icon-moon');
 
-  // Utility to set mode
+  let isOpen = false;
+
+  // Mobile Menu Toggle
+  menuBtn.addEventListener('click', () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      mobileMenu.classList.remove('-translate-y-full');
+      mobileMenu.classList.add('translate-y-0');
+      lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      lines[1].style.opacity = '0';
+      lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      mobileMenu.classList.remove('translate-y-0');
+      mobileMenu.classList.add('-translate-y-full');
+      lines[0].style.transform = 'rotate(0) translate(0, 0)';
+      lines[1].style.opacity = '1';
+      lines[2].style.transform = 'rotate(0) translate(0, 0)';
+    }
+  });
+
+  // Dark Mode Toggle
   function applyDarkMode(isDark) {
     document.documentElement.classList.toggle('dark', isDark);
     darkToggle.setAttribute('aria-pressed', String(isDark));
-    // show/hide icons
     if (isDark) {
-      sunIcon.classList.add('hidden');
-      sunIcon.setAttribute('aria-hidden', 'true');
-      moonIcon.classList.remove('hidden');
-      moonIcon.setAttribute('aria-hidden', 'false');
-    } else {
-      moonIcon.classList.add('hidden');
-      moonIcon.setAttribute('aria-hidden', 'true');
       sunIcon.classList.remove('hidden');
-      sunIcon.setAttribute('aria-hidden', 'false');
+      moonIcon.classList.add('hidden');
+    } else {
+      moonIcon.classList.remove('hidden');
+      sunIcon.classList.add('hidden');
     }
   }
 
-  // Read saved preference (if any). If none, follow system preference.
   const saved = localStorage.getItem('prefers-dark');
-  const prefersDarkScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  let isDark = saved !== null ? (saved === 'true') : prefersDarkScheme;
+  let isDark = saved !== null ? saved === 'true' : true; // Default dark mode ON
 
-  // Apply initial
   applyDarkMode(isDark);
 
-  // Toggle on click
   darkToggle.addEventListener('click', () => {
     isDark = !document.documentElement.classList.contains('dark');
     applyDarkMode(isDark);
     localStorage.setItem('prefers-dark', String(isDark));
-    // small press animation
-    darkToggle.animate([
-      { transform: 'scale(1)' },
-      { transform: 'scale(0.92)' },
-      { transform: 'scale(1)' }
-    ], { duration: 160, easing: 'ease-out' });
+    darkToggle.animate([{ transform: 'scale(1)' }, { transform: 'scale(0.92)' }, { transform: 'scale(1)' }], { duration: 160, easing: 'ease-out' });
   });
 </script>
+
 
 <script src="https://kit.fontawesome.com/a2ada4947c.js" crossorigin="anonymous"></script>
 
