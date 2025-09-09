@@ -7,95 +7,33 @@
     <title>Document</title>
 </head>
 <body>
-
-<!-- Preloader -->
-<style>
-  /* container */
-  #site-preloader {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    z-index: 99999;
-    transition: background 0.3s ease;
-  }
-
-  /* set up theme variables */
-  /* :root {
-    --preloader-bg: #ffffff; 
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --preloader-bg: #000000; 
-    }
-  } */
-
-  /* logo animation: pulse */
-  #site-preloader img {
-    max-width: 80vw;
-    max-height: 60vh;
-    width: auto;
-    height: auto;
-    animation: logo-pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes logo-pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.7; transform: scale(1.05); }
-  }
-
-  /* fade out preloader */
-  @keyframes preloader-fade {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
-  }
-  #site-preloader.fade-out {
-    animation: preloader-fade 1s ease forwards;
-  }
-</style>
-
-<div id="site-preloader">
-  <img src="./assets/img/logo.png" alt="Elysian Paris Logo">
-</div>
-
-<script>
-(function(){
-  var pre = document.getElementById('site-preloader');
-  if (!pre) return;
-
-  // after 10s, fade out
-  setTimeout(function(){
-    pre.classList.add('fade-out');
-    // then remove after animation
-    pre.addEventListener('animationend', function(){
-      if (pre && pre.parentNode) pre.parentNode.removeChild(pre);
-    });
-  }, 5000);
-})();
-</script>
-    
 <!-- Navbar -->
-<nav class="w-full">
-  <div class="flex justify-between items-center 2xl:px-20 lg:px-10 px-5 xl:pt-8 pt-5">
+<nav class="w-full absolute top-0 left-0 right-0 z-20 md:pt-12 pt-6">
+  <div class="flex justify-between items-center xl:px-36 md:px-10 px-5">
     <!-- Logo -->
     <div>
-      <img src="./assets/img/Logo.png" alt="Logo" class="w-32">
+      <img src="./assets/img/logo.png" alt="Logo" class="w-32">
     </div>
 
     <!-- Menu (Desktop) -->
     <div class="hidden lg:flex">
       <ul class="flex 2xl:space-x-10 xl:space-x-8  space-x-5 font-bold 2xl:text-lg xl:text-base lg:text-sm items-center">
-        <li><a href="#" class="text-[#B8A16B] text-sm font-normal">Home</a></li>
-        <li><a href="#" class="text-[#B8A16B] text-sm font-normal">About</a></li>
-        <li><a href="#" class="text-[#B8A16B] text-sm font-normal">Services</a></li>
-        <li><a href="#" class="text-[#B8A16B] text-sm font-normal">Book Now</a></li>
-      </ul>
-      
+        <li><a href="Home" class="menu-link">Home</a></li>
+        <li><a href="About" class="menu-link">About</a></li>
+        <li><a href="Services" class="menu-link">Services</a></li>
+        <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq" class="menu-link">Book Now</a></li>
+        <!-- Dark Mode Toggle -->
+      <button id="dark-toggle" class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center transition duration-300">
+        🌙
+      </button>
+    </ul>
     </div>
-    <!-- Hamburger Menu (Mobile) -->
-    <div class="lg:hidden">
+
+    <!-- Hamburger + Dark Mode -->
+    <div class="flex items-center space-x-3 lg:hidden">
+    
+
+      <!-- Hamburger -->
       <button id="menu-btn" class="relative w-10 h-10 focus:outline-none">
         <span class="sr-only">Toggle Menu</span>
         <div class="hamburger-lines">
@@ -108,45 +46,69 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden hidden px-5 pb-5">
-    <ul class="flex flex-col justify-center items-center space-y-4 font-light 2xl:text-lg xl:text-base lg:text-sm mt-4">
-     <li><a href="#" class="text-[#B8A16B] text-sm font-normal">Home</a></li>
-        <li><a href="#" class="text-[#B8A16B] text-sm font-normal">About</a></li>
-        <li><a href="#" class="text-[#B8A16B] text-sm font-normal">Services</a></li>
-        <li><a href="#" class="text-[#B8A16B] text-sm font-normal">Book Now</a></li>
+  <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-900 z-10 flex flex-col items-center justify-center px-5 pb-5 transform -translate-y-full transition-transform duration-500 ease-in-out">
+    <ul class="flex flex-col justify-center items-center space-y-6 font-light 2xl:text-lg xl:text-base lg:text-sm mt-4">
+      <li><a href="#Home" class="menu-link">Home</a></li>
+      <li><a href="About" class="menu-link">About</a></li>
+      <li><a href="Services" class="menu-link">Services</a></li>
+      <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq" class="menu-link">Book Now</a></li>
     </ul>
   </div>
 </nav>
 
-<!--navbar JS -->
+<!-- JS -->
 <script>
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const lines = menuBtn.querySelectorAll('span');
+  const darkToggle = document.getElementById('dark-toggle');
   let isOpen = false;
+  let isDark = false;
 
-  // Mobile menu toggle
+  // Hamburger Toggle
   menuBtn.addEventListener('click', () => {
     isOpen = !isOpen;
-    mobileMenu.classList.toggle('hidden');
+
     if (isOpen) {
+      mobileMenu.classList.remove('-translate-y-full');
+      mobileMenu.classList.add('translate-y-0');
       lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
       lines[1].style.opacity = '0';
       lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
     } else {
+      mobileMenu.classList.remove('translate-y-0');
+      mobileMenu.classList.add('-translate-y-full');
       lines[0].style.transform = 'rotate(0) translate(0, 0)';
       lines[1].style.opacity = '1';
       lines[2].style.transform = 'rotate(0) translate(0, 0)';
     }
   });
 
-  // Mobile dropdown toggle
-  function toggleDropdown(id, btn) {
-    const dropdown = document.getElementById(id);
-    const arrow = btn.querySelector('span');
-    dropdown.classList.toggle('hidden');
-    arrow.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-  }
+  // Dark Mode Toggle
+  darkToggle.addEventListener('click', () => {
+    isDark = !isDark;
+    document.documentElement.classList.toggle('dark', isDark);
+    darkToggle.textContent = isDark ? "☀️" : "🌙";
+  });
 </script>
+
+<!-- Tailwind Dark Mode Support -->
+<style>
+  .menu-link {
+    color: #B8A16B;
+    font-size: 1rem;
+    font-weight: normal;
+    transition: color 0.3s;
+  }
+  .dark .menu-link {
+    color: #f3f3f3;
+  }
+  .dark body {
+    background: #121212;
+    color: #f3f3f3;
+  }
+</style>
+
+
 </body>
 </html>
