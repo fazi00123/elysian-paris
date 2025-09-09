@@ -22,10 +22,34 @@
         <li><a href="About" class="menu-link">About</a></li>
         <li><a href="Services" class="menu-link">Services</a></li>
         <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq" class="menu-link">Book Now</a></li>
-        <!-- Dark Mode Toggle -->
-      <button id="dark-toggle" class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center transition duration-300">
-        🌙
-      </button>
+       <!-- Dark Mode Toggle (replace your old dark-toggle button with this) -->
+<button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode"
+        class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none"
+        title="Toggle dark mode">
+  <!-- Sun (light mode) -->
+  <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+       class="w-6 h-6" role="img" aria-hidden="false">
+    <title>Light mode</title>
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
+      <path d="M12 1v2" />
+      <path d="M12 21v2" />
+      <path d="M4.22 4.22l1.42 1.42" />
+      <path d="M18.36 18.36l1.42 1.42" />
+      <path d="M1 12h2" />
+      <path d="M21 12h2" />
+      <path d="M4.22 19.78l1.42-1.42" />
+      <path d="M18.36 5.64l1.42-1.42" />
+    </g>
+  </svg>
+
+  <!-- Moon (dark mode) -->
+  <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+       class="w-6 h-6 hidden" role="img" aria-hidden="true">
+    <title>Dark mode</title>
+    <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+  </svg>
+</button>
     </ul>
     </div>
 
@@ -58,37 +82,48 @@
 
 <!-- JS -->
 <script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const lines = menuBtn.querySelectorAll('span');
+  // Elements
   const darkToggle = document.getElementById('dark-toggle');
-  let isOpen = false;
-  let isDark = false;
+  const sunIcon = document.getElementById('icon-sun');
+  const moonIcon = document.getElementById('icon-moon');
 
-  // Hamburger Toggle
-  menuBtn.addEventListener('click', () => {
-    isOpen = !isOpen;
-
-    if (isOpen) {
-      mobileMenu.classList.remove('-translate-y-full');
-      mobileMenu.classList.add('translate-y-0');
-      lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      lines[1].style.opacity = '0';
-      lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      mobileMenu.classList.remove('translate-y-0');
-      mobileMenu.classList.add('-translate-y-full');
-      lines[0].style.transform = 'rotate(0) translate(0, 0)';
-      lines[1].style.opacity = '1';
-      lines[2].style.transform = 'rotate(0) translate(0, 0)';
-    }
-  });
-
-  // Dark Mode Toggle
-  darkToggle.addEventListener('click', () => {
-    isDark = !isDark;
+  // Utility to set mode
+  function applyDarkMode(isDark) {
     document.documentElement.classList.toggle('dark', isDark);
-    darkToggle.textContent = isDark ? "☀️" : "🌙";
+    darkToggle.setAttribute('aria-pressed', String(isDark));
+    // show/hide icons
+    if (isDark) {
+      sunIcon.classList.add('hidden');
+      sunIcon.setAttribute('aria-hidden', 'true');
+      moonIcon.classList.remove('hidden');
+      moonIcon.setAttribute('aria-hidden', 'false');
+    } else {
+      moonIcon.classList.add('hidden');
+      moonIcon.setAttribute('aria-hidden', 'true');
+      sunIcon.classList.remove('hidden');
+      sunIcon.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  // Read saved preference (if any). If none, follow system preference.
+  const saved = localStorage.getItem('prefers-dark');
+  const prefersDarkScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let isDark = saved !== null ? (saved === 'true') : prefersDarkScheme;
+
+  // Apply initial
+  applyDarkMode(isDark);
+
+  // Toggle on click
+  darkToggle.addEventListener('click', () => {
+    isDark = !document.documentElement.classList.contains('dark');
+    applyDarkMode(isDark);
+    localStorage.setItem('prefers-dark', String(isDark));
+    // small press animation
+    darkToggle.animate([
+      { transform: 'scale(1)' },
+      { transform: 'scale(0.92)' },
+      { transform: 'scale(1)' }
+    ], { duration: 160, easing: 'ease-out' });
   });
 </script>
 
