@@ -10,25 +10,24 @@
 <!-- Navbar -->
 <nav class="w-full absolute top-0 left-0 right-0 z-20 md:pt-12 pt-6">
   <div class="flex justify-between items-center xl:px-36 md:px-10 px-5">
-    <!-- Logo -->
-    <div>
-      <img src="./assets/img/logo.png" alt="Logo" class="w-32">
+    <!-- Logo Section -->
+    <div class="relative">
+      <img src="./assets/img/logo.png" alt="Black Logo" class="w-32 block dark:hidden" id="light-logo">
+      <img src="./assets/img/gold logo.png" alt="Gold Logo" class="w-32 hidden dark:block" id="dark-logo">
     </div>
 
     <!-- Menu (Desktop) -->
     <div class="hidden lg:flex">
-      <ul class="flex 2xl:space-x-10 xl:space-x-8  space-x-5 font-bold 2xl:text-lg xl:text-base lg:text-sm items-center">
-        <li><a href="Home" class="menu-link">Home</a></li>
-        <li><a href="About" class="menu-link">About</a></li>
-        <li><a href="Services" class="menu-link">Services</a></li>
-        <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq" class="menu-link">Book Now</a></li>
-       <!-- Dark Mode Toggle (replace your old dark-toggle button with this) -->
-<button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode"
-        class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none"
-        title="Toggle dark mode">
-  <!-- Sun (light mode) -->
-  <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="w-6 h-6" role="img" aria-hidden="false">
+      <ul class="flex 2xl:space-x-10 lg:space-x-8  space-x-5 font-bold 2xl:text-lg xl:text-base lg:text-sm items-center">
+        <li><a href="#Home" class="menu-link text-[#B8A16B] text-base font-normal">Home</a></li>
+        <li><a href="#About" class="menu-link text-[#B8A16B] text-base font-normal">About</a></li>
+        <li><a href="#Services" class="menu-link text-[#B8A16B] text-base font-normal">Services</a></li>
+        <li><a href="#Book" class="menu-link text-[#B8A16B] text-base font-normal">Book Now</a></li>
+        
+       <!-- Dark Mode Toggle -->
+<button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
+  <!-- Sun Icon (Light Mode) -->
+  <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <title>Light mode</title>
     <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
@@ -43,197 +42,149 @@
     </g>
   </svg>
 
-  <!-- Moon (dark mode) -->
-  <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="w-6 h-6 hidden" role="img" aria-hidden="true">
+  <!-- Moon Icon (Dark Mode) -->
+  <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
   </svg>
 </button>
-    </ul>
+
+      </ul>
     </div>
 
-    <!-- Hamburger + Dark Mode -->
-    <div class="flex items-center space-x-3 lg:hidden">
-    
-
-      <!-- Hamburger -->
-      <button id="menu-btn" class="relative w-10 h-10 focus:outline-none">
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="lg:hidden">
+      <button id="menu-btn" class="relative w-10 h-10 focus:outline-none z-50">
         <span class="sr-only">Toggle Menu</span>
         <div class="hamburger-lines">
-          <span class="absolute bg-[#121212] w-8 h-[3px] top-2 left-1 transition-all duration-300 ease-in-out origin-top-left"></span>
-          <span class="absolute bg-[#121212] w-8 h-[3px] top-4 left-1 transition-all duration-300 ease-in-out"></span>
-          <span class="absolute bg-[#121212] w-8 h-[3px] top-6 left-1 transition-all duration-300 ease-in-out origin-bottom-left"></span>
+          <span class="absolute bg-[#121212] dark:bg-[#B8A16B] w-8 h-[3px] top-2 left-1 transition-all duration-300 ease-in-out origin-top-left"></span>
+          <span class="absolute bg-[#121212] dark:bg-[#B8A16B] w-8 h-[3px] top-4 left-1 transition-all duration-300 ease-in-out"></span>
+          <span class="absolute bg-[#121212] dark:bg-[#B8A16B] w-8 h-[3px] top-6 left-1 transition-all duration-300 ease-in-out origin-bottom-left"></span>
         </div>
       </button>
     </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-900 z-10 flex flex-col items-center justify-center px-5 pb-5 transform -translate-y-full transition-transform duration-500 ease-in-out">
+  <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white dark:bg-[#121212] z-10 flex flex-col items-center justify-center px-5 pb-5 transform -translate-y-full transition-transform duration-500 ease-in-out">
     <ul class="flex flex-col justify-center items-center space-y-6 font-light 2xl:text-lg xl:text-base lg:text-sm mt-4">
-      <li><a href="#Home" class="menu-link">Home</a></li>
-      <li><a href="About" class="menu-link">About</a></li>
-      <li><a href="Services" class="menu-link">Services</a></li>
-      <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq" class="menu-link">Book Now</a></li>
+      <li><a href="#Home" class="menu-link text-[#B8A16B] text-lg font-normal">Home</a></li>
+      <li><a href="#About" class="menu-link text-[#B8A16B] text-lg font-normal">About</a></li>
+      <li><a href="#Services" class="menu-link text-[#B8A16B] text-lg font-normal">Services</a></li>
+      <li><a href="#Book" class="menu-link text-[#B8A16B] text-lg font-normal">Book Now</a></li>
+
+    <button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
+  <!-- Sun Icon (Light Mode) -->
+  <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
+      <path d="M12 1v2" />
+      <path d="M12 21v2" />
+      <path d="M4.22 4.22l1.42 1.42" />
+      <path d="M18.36 18.36l1.42 1.42" />
+      <path d="M1 12h2" />
+      <path d="M21 12h2" />
+      <path d="M4.22 19.78l1.42-1.42" />
+      <path d="M18.36 5.64l1.42-1.42" />
+    </g>
+  </svg>
+
+  <!-- Moon Icon (Dark Mode) -->
+  <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+  </svg>
+</button>
     </ul>
   </div>
 </nav>
 
-<section class="bg-[#ECE8DF] dark:bg-[#1A1A1A] xl:px-36 md:px-10 px-5 xl:py-24 py-12 xl:mt-40 mt-20">
-  <div class="flex md:flex-row flex-col 2xl:gap-20 xl:gap-10 gap-5">
-    <!-- Left Sticky Sidebar -->
-    <div class="md:w-1/3 w-full md:sticky md:top-20 h-fit self-start">
-      <div>
-        <p class="text-[#737373] xl:text-base text-sm uppercase tracking-widest">Reviews / Testimonials</p>
-        <h2 class="xl:text-6xl lg:text-5xl text-4xl text-[#B8A16B]">CLIENT <br class="md:block hidden">STORIES</h2>
-        <p class="xl:text-lg lg:text-base text-sm text-[#737373]">Discover how our treatments have transformed lives
-        and restored confidence across London's wellness
-        community.</p>
-      </div>
 
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-1 gap-8 pt-10 md:block hidden">
-        <div>
-          <div class="counter" data-target="98" data-suffix="%">0</div>
-          <p class="uppercase text-[#737373] text-lg font-normal mt-1">Satisfaction</p>
-        </div>
-
-        <div>
-          <div class="counter" data-target="500" data-suffix="+">0</div>
-          <p class="uppercase text-[#737373] text-lg font-normal mt-1">Reviews</p>
-        </div>
-
-        <div>
-          <div class="counter flex" data-target="5" data-suffix="★">0</div>
-          <p class="uppercase text-[#737373] text-lg font-normal mt-1">Average Rating</p>
-        </div>
-
-        <div>
-          <div class="counter" data-target="100" data-suffix="%">0</div>
-          <p class="uppercase text-[#737373] text-lg font-normal mt-1">Repeat Clients</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Scrollable Content -->
-    <div class="md:w-2/3 w-full space-y-6 md:overflow-y-auto pr-2">
-      <div class="bg-white dark:bg-[#252525] p-8 border-l-4 border-[#B8A16B]">
-        <div class="flex justify-between">
-          <p class="text-[#B8A16B]">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-          <p class="text-[#737373] xl:text-base text-sm uppercase tracking-widest">LYMPHATIC DRAINAGE</p>
-        </div>
-        <p class="2xl:text-[22px] xl:text-lg text-sm text-[#B8A16B] italic 2xl:leading-9 xl:leading-8 leading-6">"The lymphatic drainage sessions have completely transformed how I feel. Not only
-        did the swelling reduce dramatically, but I feel more energized and confident in my
-        own skin."</p>
-        <div class="pt-5">
-          <h3 class="font-medium text-[#B8A16B] 2xl:text-lg text-sm ">Sarah Mitchell</h3>
-          <p class="text-[#737373] 2xl:text-lg text-sm pt-1">Marketing Director</p>
-        </div>
-      </div>
-
-      <div class="bg-white dark:bg-[#252525] p-8 border-l-4 border-[#B8A16B]">
-        <div class="flex justify-between">
-          <p class="text-[#B8A16B]">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-          <p class="text-[#737373] xl:text-base text-sm uppercase tracking-widest">LYMPHATIC DRAINAGE</p>
-        </div>
-        <p class="2xl:text-[22px] xl:text-lg text-sm text-[#B8A16B] italic 2xl:leading-9 xl:leading-8 leading-6">"The lymphatic drainage sessions have completely transformed how I feel. Not only
-        did the swelling reduce dramatically, but I feel more energized and confident in my
-        own skin."</p>
-        <div class="pt-5">
-          <h3 class="font-medium text-[#B8A16B] 2xl:text-lg text-sm ">Sarah Mitchell</h3>
-          <p class="text-[#737373] 2xl:text-lg text-sm pt-1">Marketing Director</p>
-        </div>
-      </div>
-
-      <div class="bg-white dark:bg-[#252525] p-8 border-l-4 border-[#B8A16B]">
-        <div class="flex justify-between">
-          <p class="text-[#B8A16B]">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-          <p class="text-[#737373] xl:text-base text-sm uppercase tracking-widest">LYMPHATIC DRAINAGE</p>
-        </div>
-        <p class="2xl:text-[22px] xl:text-lg text-sm text-[#B8A16B] italic 2xl:leading-9 xl:leading-8 leading-6">"The lymphatic drainage sessions have completely transformed how I feel. Not only
-        did the swelling reduce dramatically, but I feel more energized and confident in my
-        own skin."</p>
-        <div class="pt-5">
-          <h3 class="font-medium text-[#B8A16B] 2xl:text-lg text-sm ">Sarah Mitchell</h3>
-          <p class="text-[#737373] 2xl:text-lg text-sm pt-1">Marketing Director</p>
-        </div>
-      </div>
-
-      <div class="bg-[#B8A16B] p-8 text-center">
-        <h2 class="2xl:text-3xl xl:text-2xl text-xl text-white">Ready to Start Your Journey?</h2>
-        <p class="2xl:text-xl xl:text-lg text-base text-white pt-4">Join hundreds of satisfied clients who have transformed their wellness.</p>
-        <p class="2xl:text-xl xl:text-lg text-base text-white pt-8">Book Consultation • View All Reviews</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- JS -->
+<!-- Navbar JS -->
 <script>
-  // Elements
-  const darkToggle = document.getElementById('dark-toggle');
-  const sunIcon = document.getElementById('icon-sun');
-  const moonIcon = document.getElementById('icon-moon');
+    const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const lines = menuBtn.querySelectorAll('span');
+const darkToggles = document.querySelectorAll('.dark-toggle');
+const sunIcons = document.querySelectorAll('.icon-sun');
+const moonIcons = document.querySelectorAll('.icon-moon');
+const menuLinks = document.querySelectorAll('.menu-link');
 
-  // Utility to set mode
-  function applyDarkMode(isDark) {
-    document.documentElement.classList.toggle('dark', isDark);
-    darkToggle.setAttribute('aria-pressed', String(isDark));
-    // show/hide icons
-    if (isDark) {
-      sunIcon.classList.add('hidden');
-      sunIcon.setAttribute('aria-hidden', 'true');
-      moonIcon.classList.remove('hidden');
-      moonIcon.setAttribute('aria-hidden', 'false');
-    } else {
-      moonIcon.classList.add('hidden');
-      moonIcon.setAttribute('aria-hidden', 'true');
-      sunIcon.classList.remove('hidden');
-      sunIcon.setAttribute('aria-hidden', 'false');
-    }
+let isOpen = false;
+
+// Mobile Menu Toggle
+menuBtn.addEventListener('click', () => {
+  isOpen = !isOpen;
+  if (isOpen) {
+    mobileMenu.classList.remove('-translate-y-full');
+    mobileMenu.classList.add('translate-y-0');
+    lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    lines[1].style.opacity = '0';
+    lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    mobileMenu.classList.remove('translate-y-0');
+    mobileMenu.classList.add('-translate-y-full');
+    lines[0].style.transform = 'rotate(0) translate(0, 0)';
+    lines[1].style.opacity = '1';
+    lines[2].style.transform = 'rotate(0) translate(0, 0)';
   }
+});
 
-  // Read saved preference (if any). If none, follow system preference.
-  const saved = localStorage.getItem('prefers-dark');
-  const prefersDarkScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  let isDark = saved !== null ? (saved === 'true') : prefersDarkScheme;
+// Dark Mode Function
+function applyDarkMode(isDark) {
+  document.documentElement.classList.toggle('dark', isDark);
+  darkToggles.forEach(toggle => toggle.setAttribute('aria-pressed', String(isDark)));
+  if (isDark) {
+    sunIcons.forEach(icon => icon.classList.add('hidden'));
+    moonIcons.forEach(icon => icon.classList.remove('hidden'));
+  } else {
+    moonIcons.forEach(icon => icon.classList.add('hidden'));
+    sunIcons.forEach(icon => icon.classList.remove('hidden'));
+  }
+}
 
-  // Apply initial
-  applyDarkMode(isDark);
+// Default Dark Mode ON
+const saved = localStorage.getItem('prefers-dark');
+let isDark = saved !== null ? saved === 'true' : true;
+applyDarkMode(isDark);
 
-  // Toggle on click
-  darkToggle.addEventListener('click', () => {
+// Dark Mode Toggle Event
+darkToggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
     isDark = !document.documentElement.classList.contains('dark');
     applyDarkMode(isDark);
     localStorage.setItem('prefers-dark', String(isDark));
-    // small press animation
-    darkToggle.animate([
-      { transform: 'scale(1)' },
-      { transform: 'scale(0.92)' },
-      { transform: 'scale(1)' }
-    ], { duration: 160, easing: 'ease-out' });
+    toggle.animate([{ transform: 'scale(1)' }, { transform: 'scale(0.92)' }, { transform: 'scale(1)' }], { duration: 160, easing: 'ease-out' });
   });
+});
+
+// Smooth Scroll & Close Mobile Menu
+menuLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - 80,
+        behavior: "smooth"
+      });
+    }
+
+    // Close menu on mobile after click
+    if (window.innerWidth < 1024) {
+      mobileMenu.classList.remove('translate-y-0');
+      mobileMenu.classList.add('-translate-y-full');
+      lines[0].style.transform = 'rotate(0) translate(0, 0)';
+      lines[1].style.opacity = '1';
+      lines[2].style.transform = 'rotate(0) translate(0, 0)';
+      isOpen = false;
+    }
+  });
+});
+
 </script>
-
-<!-- Tailwind Dark Mode Support -->
-<style>
-  .menu-link {
-    color: #B8A16B;
-    font-size: 1rem;
-    font-weight: normal;
-    transition: color 0.3s;
-  }
-  .dark .menu-link {
-    color: #f3f3f3;
-  }
-  .dark body {
-    background: #121212;
-    color: #f3f3f3;
-  }
-</style>
-
-
 </body>
 </html>
