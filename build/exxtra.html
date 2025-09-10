@@ -17,40 +17,54 @@
     </div>
 
     <!-- Menu (Desktop) -->
-    <div class="hidden lg:flex">
-      <ul class="flex 2xl:space-x-10 lg:space-x-8  space-x-5 font-bold 2xl:text-lg xl:text-base lg:text-sm items-center">
-        <li><a href="#Home" class="menu-link text-[#B8A16B] text-base font-normal">Home</a></li>
-        <li><a href="#About" class="menu-link text-[#B8A16B] text-base font-normal">About</a></li>
-        <li><a href="#Services" class="menu-link text-[#B8A16B] text-base font-normal">Services</a></li>
-        <li><a href="#Book" class="menu-link text-[#B8A16B] text-base font-normal">Book Now</a></li>
-        
-       <!-- Dark Mode Toggle -->
-<button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
-  <!-- Sun Icon (Light Mode) -->
-  <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
-      <path d="M12 1v2" />
-      <path d="M12 21v2" />
-      <path d="M4.22 4.22l1.42 1.42" />
-      <path d="M18.36 18.36l1.42 1.42" />
-      <path d="M1 12h2" />
-      <path d="M21 12h2" />
-      <path d="M4.22 19.78l1.42-1.42" />
-      <path d="M18.36 5.64l1.42-1.42" />
-    </g>
-  </svg>
+ <div class="hidden lg:flex">
+  <ul class="flex 2xl:space-x-10 lg:space-x-8 space-x-5 font-bold 2xl:text-lg xl:text-base lg:text-sm items-center relative">
+    <li><a href="#Home" class="menu-link text-[#B8A16B] text-base font-normal">Home</a></li>
+    <li><a href="#About" class="menu-link text-[#B8A16B] text-base font-normal">About</a></li>
 
-  <!-- Moon Icon (Dark Mode) -->
-  <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-  </svg>
-</button>
-
+    <!-- Services with Fixed Width -->
+    <li class="relative group min-w-[100px] text-center"> 
+      <a href="#Services" class="menu-link text-[#B8A16B] text-base font-normal flex items-center justify-center">
+        Services
+        <svg class="w-4 h-4 ml-1 text-[#B8A16B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </a>
+      <!-- Dropdown Menu -->
+      <ul class="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-white text-[#B8A16B] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+        <li><a href="#Service1" class="block px-4 py-2 hover:bg-gray-100">Service 1</a></li>
+        <li><a href="#Service2" class="block px-4 py-2 hover:bg-gray-100">Service 2</a></li>
+        <li><a href="#Service3" class="block px-4 py-2 hover:bg-gray-100">Service 3</a></li>
       </ul>
-    </div>
+    </li>
+
+    <li><a href="#Book" class="menu-link text-[#B8A16B] text-base font-normal">Book Now</a></li>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
+      <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Light mode</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
+          <path d="M12 1v2" />
+          <path d="M12 21v2" />
+          <path d="M4.22 4.22l1.42 1.42" />
+          <path d="M18.36 18.36l1.42 1.42" />
+          <path d="M1 12h2" />
+          <path d="M21 12h2" />
+          <path d="M4.22 19.78l1.42-1.42" />
+          <path d="M18.36 5.64l1.42-1.42" />
+        </g>
+      </svg>
+      <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Dark mode</title>
+        <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+    </button>
+  </ul>
+</div>
+
+
 
     <!-- Hamburger Menu (Mobile) -->
     <div class="lg:hidden">
@@ -65,39 +79,66 @@
     </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white dark:bg-[#121212] z-10 flex flex-col items-center justify-center px-5 pb-5 transform -translate-y-full transition-transform duration-500 ease-in-out">
-    <ul class="flex flex-col justify-center items-center space-y-6 font-light 2xl:text-lg xl:text-base lg:text-sm mt-4">
-      <li><a href="#Home" class="menu-link text-[#B8A16B] text-lg font-normal">Home</a></li>
-      <li><a href="#About" class="menu-link text-[#B8A16B] text-lg font-normal">About</a></li>
-      <li><a href="#Services" class="menu-link text-[#B8A16B] text-lg font-normal">Services</a></li>
-      <li><a href="#Book" class="menu-link text-[#B8A16B] text-lg font-normal">Book Now</a></li>
+ <!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white dark:bg-[#121212] z-10 flex flex-col items-center justify-center px-5 pb-5 transform -translate-y-full transition-transform duration-500 ease-in-out">
+  <ul class="flex flex-col justify-center items-center space-y-6 font-light 2xl:text-lg xl:text-base lg:text-sm mt-4">
+    <li><a href="#Home" class="menu-link text-[#B8A16B] text-lg font-normal">Home</a></li>
+    <li><a href="#About" class="menu-link text-[#B8A16B] text-lg font-normal">About</a></li>
+    
+    <!-- Services with Clickable Dropdown -->
+    <li class="relative w-full text-center">
+      <button id="services-toggle" class="w-full text-[#B8A16B] text-lg font-normal flex justify-center items-center focus:outline-none">
+        Services
+        <svg class="w-4 h-4 ml-1 text-[#B8A16B] transition-transform duration-300" id="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <!-- Dropdown Menu -->
+      <ul id="services-dropdown" class="hidden mt-2 bg-white dark:bg-[#1e1e1e] text-[#B8A16B] rounded-lg shadow-lg w-40 mx-auto">
+        <li><a href="#Service1" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Service 1</a></li>
+        <li><a href="#Service2" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Service 2</a></li>
+        <li><a href="#Service3" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Service 3</a></li>
+      </ul>
+    </li>
 
+    <li><a href="#Book" class="menu-link text-[#B8A16B] text-lg font-normal">Book Now</a></li>
+
+    <!-- Dark Mode Toggle -->
     <button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
-  <!-- Sun Icon (Light Mode) -->
-  <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
-      <path d="M12 1v2" />
-      <path d="M12 21v2" />
-      <path d="M4.22 4.22l1.42 1.42" />
-      <path d="M18.36 18.36l1.42 1.42" />
-      <path d="M1 12h2" />
-      <path d="M21 12h2" />
-      <path d="M4.22 19.78l1.42-1.42" />
-      <path d="M18.36 5.64l1.42-1.42" />
-    </g>
-  </svg>
+      <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Light mode</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
+          <path d="M12 1v2" />
+          <path d="M12 21v2" />
+          <path d="M4.22 4.22l1.42 1.42" />
+          <path d="M18.36 18.36l1.42 1.42" />
+          <path d="M1 12h2" />
+          <path d="M21 12h2" />
+          <path d="M4.22 19.78l1.42-1.42" />
+          <path d="M18.36 5.64l1.42-1.42" />
+        </g>
+      </svg>
+      <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Dark mode</title>
+        <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+    </button>
+  </ul>
+</div>
 
-  <!-- Moon Icon (Dark Mode) -->
-  <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-  </svg>
-</button>
-    </ul>
-  </div>
+<script>
+  // Toggle Dropdown on Mobile
+  const toggleBtn = document.getElementById("services-toggle");
+  const dropdown = document.getElementById("services-dropdown");
+  const arrow = document.getElementById("dropdown-arrow");
+
+  toggleBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("hidden");
+    arrow.classList.toggle("rotate-180"); // Rotate arrow when open
+  });
+</script>
+
 </nav>
 
 

@@ -76,7 +76,7 @@
     pre.addEventListener('animationend', function(){
       if (pre && pre.parentNode) pre.parentNode.removeChild(pre);
     });
-  }, 3000);
+  }, 1000);
 })();
 </script>
 
@@ -91,40 +91,59 @@
     </div>
 
     <!-- Menu (Desktop) -->
-    <div class="hidden lg:flex">
-      <ul class="flex 2xl:space-x-10 lg:space-x-8  space-x-5 font-bold 2xl:text-lg xl:text-base lg:text-sm items-center">
-        <li><a href="#Home" class="menu-link text-[#B8A16B] text-base font-normal">Home</a></li>
-        <li><a href="#About" class="menu-link text-[#B8A16B] text-base font-normal">About</a></li>
-        <li><a href="#Services" class="menu-link text-[#B8A16B] text-base font-normal">Services</a></li>
-        <li><a href="#Book" class="menu-link text-[#B8A16B] text-base font-normal">Book Now</a></li>
+   <div class="hidden lg:flex">
+  <ul class="flex 2xl:space-x-10 lg:space-x-8 space-x-5 font-bold 2xl:text-lg xl:text-base lg:text-sm items-center relative">
+    <li><a href="#Home" class="menu-link text-[#B8A16B] text-base font-normal">Home</a></li>
+    <li><a href="#About" class="menu-link text-[#B8A16B] text-base font-normal">About</a></li>
+    
+    <!-- Services with Dropdown -->
+    <li class="relative group">
+      <a href="#Services" class="menu-link text-[#B8A16B] text-base font-normal flex items-center">
+        Services
+        <svg class="w-4 h-4 ml-1 text-[#B8A16B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </a>
+      <!-- Dropdown Menu -->
+      <ul class="absolute left-0 mt-2 w-44 bg-white text-[#B8A16B] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+        <li><a href="#Service1" class="block px-4 py-2 hover:bg-gray-100 hover:rounded-md">Lymphatic Drainage 1 zone<a><li></li>
+          <li><a href="#Service2" class="block px-4 py-2 hover:bg-gray-100 hover:rounded-md">Lymphatic Drainage 2 zones<a><li></li>
+        <li><a href="#Service3" class="block px-4 py-2 hover:bg-gray-100 hover:rounded-md">Maderotherapy</a></li>
+        <li><a href="#Service4" class="block px-4 py-2 hover:bg-gray-100 hover:rounded-md">Post-op</a></li>
+        <li><a href="#Service5" class="block px-4 py-2 hover:bg-gray-100 hover:rounded-md">Prenatal Massage</a></li>
+        <li><a href="#Service6" class="block px-4 py-2 hover:bg-gray-100 hover:rounded-md">Cavitation Fusion</a></li>
         
-       <!-- Dark Mode Toggle -->
-<button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
-  <!-- Sun Icon (Light Mode) -->
-  <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
-      <path d="M12 1v2" />
-      <path d="M12 21v2" />
-      <path d="M4.22 4.22l1.42 1.42" />
-      <path d="M18.36 18.36l1.42 1.42" />
-      <path d="M1 12h2" />
-      <path d="M21 12h2" />
-      <path d="M4.22 19.78l1.42-1.42" />
-      <path d="M18.36 5.64l1.42-1.42" />
-    </g>
-  </svg>
-
-  <!-- Moon Icon (Dark Mode) -->
-  <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-  </svg>
-</button>
-
       </ul>
-    </div>
+    </li>
+
+    <li><a href="#Book" class="menu-link text-[#B8A16B] text-base font-normal">Book Now</a></li>
+    
+    <!-- Dark Mode Toggle -->
+    <button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
+      <!-- Sun Icon -->
+      <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Light mode</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
+          <path d="M12 1v2" />
+          <path d="M12 21v2" />
+          <path d="M4.22 4.22l1.42 1.42" />
+          <path d="M18.36 18.36l1.42 1.42" />
+          <path d="M1 12h2" />
+          <path d="M21 12h2" />
+          <path d="M4.22 19.78l1.42-1.42" />
+          <path d="M18.36 5.64l1.42-1.42" />
+        </g>
+      </svg>
+      <!-- Moon Icon -->
+      <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Dark mode</title>
+        <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+    </button>
+  </ul>
+</div>
+
 
     <!-- Hamburger Menu (Mobile) -->
     <div class="lg:hidden">
@@ -139,39 +158,69 @@
     </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white dark:bg-[#121212] z-10 flex flex-col items-center justify-center px-5 pb-5 transform -translate-y-full transition-transform duration-500 ease-in-out">
-    <ul class="flex flex-col justify-center items-center space-y-6 font-light 2xl:text-lg xl:text-base lg:text-sm mt-4">
-      <li><a href="#Home" class="menu-link text-[#B8A16B] text-lg font-normal">Home</a></li>
-      <li><a href="#About" class="menu-link text-[#B8A16B] text-lg font-normal">About</a></li>
-      <li><a href="#Services" class="menu-link text-[#B8A16B] text-lg font-normal">Services</a></li>
-      <li><a href="#Book" class="menu-link text-[#B8A16B] text-lg font-normal">Book Now</a></li>
+ <!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white dark:bg-[#121212] z-10 flex flex-col items-center justify-center px-5 pb-5 transform -translate-y-full transition-transform duration-500 ease-in-out">
+  <ul class="flex flex-col justify-center items-center space-y-6 font-light 2xl:text-lg xl:text-base lg:text-sm mt-4">
+    <li><a href="#Home" class="menu-link text-[#B8A16B] text-lg font-normal">Home</a></li>
+    <li><a href="#About" class="menu-link text-[#B8A16B] text-lg font-normal">About</a></li>
+    
+    <!-- Services with Clickable Dropdown -->
+    <li class="relative w-full text-center">
+      <button id="services-toggle" class="w-full text-[#B8A16B] text-lg font-normal flex justify-center items-center focus:outline-none">
+        Services
+        <svg class="w-4 h-4 ml-1 text-[#B8A16B] transition-transform duration-300" id="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <!-- Dropdown Menu -->
+      <ul id="services-dropdown" class="hidden mt-2 bg-white dark:bg-[#1e1e1e] text-[#B8A16B] rounded-lg shadow-lg w-40 mx-auto">
+        <li><a href="#Service1" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Lymphatic Drainage 1 zone</a></li>
+        <li><a href="#Service2" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Lymphatic Drainage 2 zones</a></li>
+        <li><a href="#Service3" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Maderotherapy</a></li>
+         <li><a href="#Service4" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Post-op</a></li>
+        <li><a href="#Service5" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Prenatal Massage</a></li>
+        <li><a href="#Service6" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Cavitation Fusion</a></li>
+      </ul>
+    </li>
 
+    <li><a href="#Book" class="menu-link text-[#B8A16B] text-lg font-normal">Book Now</a></li>
+
+    <!-- Dark Mode Toggle -->
     <button class="dark-toggle w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 focus:outline-none" aria-pressed="false" aria-label="Toggle dark mode">
-  <!-- Sun Icon (Light Mode) -->
-  <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
-      <path d="M12 1v2" />
-      <path d="M12 21v2" />
-      <path d="M4.22 4.22l1.42 1.42" />
-      <path d="M18.36 18.36l1.42 1.42" />
-      <path d="M1 12h2" />
-      <path d="M21 12h2" />
-      <path d="M4.22 19.78l1.42-1.42" />
-      <path d="M18.36 5.64l1.42-1.42" />
-    </g>
-  </svg>
+      <svg class="icon-sun w-6 h-6 text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Light mode</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
+          <path d="M12 1v2" />
+          <path d="M12 21v2" />
+          <path d="M4.22 4.22l1.42 1.42" />
+          <path d="M18.36 18.36l1.42 1.42" />
+          <path d="M1 12h2" />
+          <path d="M21 12h2" />
+          <path d="M4.22 19.78l1.42-1.42" />
+          <path d="M18.36 5.64l1.42-1.42" />
+        </g>
+      </svg>
+      <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <title>Dark mode</title>
+        <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+    </button>
+  </ul>
+</div>
 
-  <!-- Moon Icon (Dark Mode) -->
-  <svg class="icon-moon w-6 h-6 hidden text-[#B8A16B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-  </svg>
-</button>
-    </ul>
-  </div>
+<script>
+  // Toggle Dropdown on Mobile
+  const toggleBtn = document.getElementById("services-toggle");
+  const dropdown = document.getElementById("services-dropdown");
+  const arrow = document.getElementById("dropdown-arrow");
+
+  toggleBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("hidden");
+    arrow.classList.toggle("rotate-180"); // Rotate arrow when open
+  });
+</script>
+
 </nav>
 
 <!-- hero section  -->
@@ -199,16 +248,18 @@
 
           <div class="flex flex-col sm:flex-row gap-4 text-center justify-center items-center">
             <div>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq">
-            <Button class="bg-[#B8A16B] text-xl text-white px-12 py-4">
+            <a href="#Services" >
+            <Button class="bg-[#B8A16B] hover:bg-transparent hover:text-[#B8A16B] text-xl text-white px-12 py-4 dark:hover:bg-transparent border border-[#B8A16B]">
               Reserve
             </Button>
             </a>
             </div>
             <div>
-            <Button class="text-[#B8A16B] text-xl">
+            <Button class="text-[#B8A16B] text-xl hover:border hover:border-[#B8A16B] px-12 py-4 ">
+              <a href="#explore">
               Explore treatments →
             </Button>
+            </a>
             </div>
           </div>
         </div>
@@ -221,9 +272,9 @@
         <div class="md:w-1/2 w-full" data-aos="fade-up"
      data-aos-duration="3000">
           <p class="text-[#737373] xl:text-base text-sm uppercase tracking-widest">About / Philosophy</p>
-          <h1 class="text-[#B8A16B] xl:text-6xl lg:text-5xl text-4xl font-bold pt-4">
-           WELCOME TO <br> Elysian</h1>
-           <p class="text-[#B8A16B] xl:text-lg text-base xl:leading-8 leading-5 xl:pt-10 pt-5"><span class="font-bold">At Elysian Studio,</span> wellness is a private art. In the heart of Kensington, our bespoke treatments unite refined tradition with advanced techniques to restore balance, enhance beauty, and elevate your sense of self. <br> <span class="italic">Established 2025 — Kensington, London </span></p>
+          <h1 class="text-[#B8A16B] xl:text-6xl lg:text-5xl text-4xl font-bold pt-4 uppercase">
+           WELCOME TO <br> Elysian Paris</h1>
+           <p class="text-[#B8A16B] xl:text-lg text-base xl:leading-8 leading-5 xl:pt-10 pt-5"><span class="font-bold">At Elysian Paris,</span> wellness is a private art. In the heart of Kensington, our bespoke treatments unite refined tradition with advanced techniques to restore balance, enhance beauty, and elevate your sense of self. <br> <span class="italic">Established 2025 — Kensington, London </span></p>
 
 <p class="2xl:text-base text-sm text-[#737373] 2xl:leading-7 leading-5 pt-5 pb-10">Founded on principles of holistic care, our certified practitioners
 create personalized wellness journeys that honor your unique
@@ -277,81 +328,8 @@ needs and aspirations.</p>
     </div>
       </section>
 
-<!-- card section  -->
-<section class="2xl:px-36 md:px-10 px-5 xl:pt-40 pt-20">
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-  <!-- Card 1 -->
-  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
-     data-aos-duration="3000">
-    <img src="./assets/img/card1.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
-    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Lymphatic Drainage</h2>
-      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Lightness and flow, naturally restored.</p>
-    </div>
-  </div>
-
-  <!-- Card 2 -->
-  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
-     data-aos-duration="3000">
-    <img src="./assets/img/card2.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
-    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Maderotherapy</h2>
-      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Sculpted contours, refined and toned.</p>
-    </div>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
-     data-aos-duration="3000">
-    <img src="./assets/img/card3.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
-    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Post-Op Recovery</h2>
-      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Gentle renewal through specialised care.</p>
-    </div>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
-     data-aos-duration="3000">
-    <img src="./assets/img/card4.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
-    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Prenatal Massage</h2>
-      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Tender comfort for mothers-to-be.</p>
-    </div>
-  </div>
-
-  <!-- Card 5 -->
-  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
-     data-aos-duration="3000">
-    <img src="./assets/img/card5.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
-    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Cavitation Fusion</h2>
-      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Advanced sculpting with visible elegance.</p>
-    </div>
-  </div>
-
-  <!-- Card 6 -->
-  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
-     data-aos-duration="3000">
-    <img src="./assets/img/card6.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
-    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
-    <div class="absolute bottom-4 left-4 text-white">
-      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">The Elysian Experience</h2>
-      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Well-being, perfected in Kensington.</p>
-    </div>
-  </div>
-</div>
-
-</section>
 
 <!-- treatment section  -->
-
     <section id="Services" class="xl:px-36 md:px-10 px-5 xl:pt-40 pt-20">
         <div class="flex md:flex-row flex-col">
 
@@ -370,21 +348,21 @@ needs and aspirations.</p>
        </div>
 
         <!-- Ist Treatment  -->
-       <div class="flex lg:flex-row flex-col items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 pt-10">
-        <div class="lg:w-2/3 w-full" data-aos="fade-up"
-     data-aos-duration="3000" >
-          <img src="./assets/img/hand.png" class="w-full" alt="">
-        </div>  
-
+       <div id="Service1" class="flex lg:flex-row flex-col items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 pt-10">
+        
         <div class="lg:w-1/3 w-full" data-aos="fade-down"
      data-aos-duration="3000">
           <div>
           <p class="text-[#B8A16B] text-lg">01</p>
-          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Lymphatic Drainage</h2>
+          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">
+Lymphatic Drainage 1 zone</h2>
           <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">A refined therapeutic massage that stimulates the lymphatic system, reduces swelling, and promotes natural detoxification  restoring lightness and vitality.</p>
+
+          <p class="xl:text-xl text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6"><i class="fa-solid fa-clock"></i> &nbsp; 60 min appointments</p>
+          <!-- <p class="xl:text-xl text-base text-[#B8A16B] xl:leading-8 leading-7 pt-2"><i class="fa-solid fa-money-check"></i> &nbsp; £120.00</p> -->
             </div>
 
-          <div class="flex justify-between xl:pb-8 pb-4">
+          <div class="flex justify-between pb-4">
             <div>
           <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Reduces inflammation</p>
           <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Improves circulation</p>
@@ -396,88 +374,75 @@ needs and aspirations.</p>
         </div>
 
         <hr>
-        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl xl:pt-8 pt-4">From £120</h3>
-
+        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl pt-4">From £120</h3>
+        <a href="https://calendar.app.google/Ev8ZV3UJwHgaE8uE9">
+         <Button class="bg-[#B8A16B] hover:bg-transparent hover:text-[#B8A16B] text-xl text-white px-12 py-4 dark:hover:bg-transparent border border-[#B8A16B] mt-4">
+              Reserve
+            </Button>
+            </a>
         </div>
+        <div class="lg:w-2/3 w-full" data-aos="fade-up"
+     data-aos-duration="3000" >
+          <img src="./assets/img/hand.png" class="w-full" alt="">
+        </div>  
+
         
        </div>
 
-<!-- 2st Treatment  -->
-       <div class="flex lg:flex-row flex-col-reverse items-center 2xl:gap-24 xl:gap-12 gap-6 2xl:pt-20 lg:pt-10 pt-20">
-        <div class="lg:w-1/3 w-full" data-aos="fade-up"
+         <!-- 2st Treatment  -->
+       <div id="Service2" class="flex lg:flex-row flex-col items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10z pt-20">
+        <div class="lg:w-2/3 w-full" data-aos="fade-up"
+     data-aos-duration="3000" >
+          <img src="./assets/img/hand.png" class="w-full" alt="">
+        </div>  
+
+        <div class="lg:w-1/3 w-full" data-aos="fade-down"
      data-aos-duration="3000">
           <div>
           <p class="text-[#B8A16B] text-lg">02</p>
-          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Maderotherapy</h2>
-          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">An exclusive sculpting ritual using artisanal wooden tools. This ancient technique tones, firms, and refines the silhouette for visible contouring and a smoother skin texture.</p>
+          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">
+Lymphatic Drainage 2 zones</h2>
+          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">A specialised technique designed to reactivate the lymphatic system, reduce fluid retention, and optimise blood circulation. This treatment supports the body’s natural detoxification process, alleviates bloating, and enhances overall metabolic function. The Manuela Shala Method is recognised for its precise, medical-grade approach delivering immediate lightness, improved definition, and long-term wellness benefits.</p>
+
+          <p class="xl:text-xl text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6"><i class="fa-solid fa-clock"></i> &nbsp; 90 min appointments</p>
+          <!-- <p class="xl:text-xl text-base text-[#B8A16B] xl:leading-8 leading-7 pt-2"><i class="fa-solid fa-money-check"></i> &nbsp; £240.00</p> -->
             </div>
 
-          <div class="flex justify-between xl:pb-8 pb-4">
+          <div class="flex justify-between pb-4">
             <div>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Body contouring</p>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Skin tightening</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Reduces inflammation</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Improves circulation</p>
           </div>
            <div>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Cellulite reduction</p>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Natural sculpting</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Boosts immunity</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Post-surgery recovery</p>
           </div>
         </div>
 
         <hr>
-        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl xl:pt-8 pt-4">From £80</h3>
-
-        </div>
-
-         <div class="lg:w-2/3 w-full" data-aos="fade-down"
-     data-aos-duration="3000">
-          <img src="./assets/img/spon.png" class="w-full" alt="">
-        </div>  
-       </div>
-
-        <!-- 3rd Treatment  -->
-       <div class="flex lg:flex-row flex-col items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10 pt-20">
-        <div class="lg:w-2/3 w-full" data-aos="fade-up"
-     data-aos-duration="3000">
-          <img src="./assets/img/massage.png" class="w-full" alt="">
-        </div>  
-
-        <div class="lg:w-1/3 w-full" data-aos="fade-down"
-     data-aos-duration="3000">
-          <div>
-          <p class="text-[#B8A16B] text-lg">03</p>
-          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Post-Op Massage</h2>
-          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">Specialised treatments supporting healing after surgery. Designed to reduce discomfort, accelerate recovery, and restore mobility with discretion and care.</p>
-            </div>
-
-          <div class="flex justify-between xl:pb-8 pb-4">
-            <div>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Faster recovery</p>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Pain relief</p>
-          </div>
-           <div>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Scar tissue reduction</p>
-          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Improved healing</p>
-          </div>
-        </div>
-
-        <hr>
-        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl xl:pt-8 pt-4">From £80</h3>
-
+        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl pt-4">Total £240</h3>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ03Mt0KA7xJm4fp59G8i-8132VCCEBaNf6tAUbZ6cf-aHA0WGCe-2eHo1Aq4U4l4c-ezs2igFpq">
+         <Button class="bg-[#B8A16B] hover:bg-transparent hover:text-[#B8A16B] text-xl text-white px-12 py-4 dark:hover:bg-transparent border border-[#B8A16B] mt-4">
+              Reserve
+            </Button>
+            </a>
         </div>
         
        </div>
 
-       <!-- 4 Treatment  -->
-       <div class="flex lg:flex-row flex-col-reverse items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10 pt-20">
+<!-- 3rt Treatment  -->
+       <div id="Service3" class="flex lg:flex-row flex-col-reverse items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10 pt-20">
         <div class="lg:w-1/3 w-full" data-aos="fade-up"
      data-aos-duration="3000">
           <div>
-          <p class="text-[#B8A16B] text-lg">04</p>
-          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Prenatal Massage</h2>
-          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">Gentle, nurturing care for mothers-to-be. Relieves tension, improves circulation, and provides deep comfort while supporting both mother and child.</p>
+          <p class="text-[#B8A16B] text-lg">03</p>
+          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Maderotherapy</h2>
+          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">From ow start drinking a lot of water 1.5L min Please STOP eat and drink 2 hours before you appointment</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6"><i class="fa-solid fa-clock"></i> &nbsp; 60 min appointments</p>
+          <!-- <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-2"><i class="fa-solid fa-money-check"></i> &nbsp; £50.00</p> -->
             </div>
 
-          <div class="flex justify-between xl:pb-8 pb-4">
+          <div class="flex justify-between pb-4">
             <div>
           <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Body contouring</p>
           <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Skin tightening</p>
@@ -489,7 +454,12 @@ needs and aspirations.</p>
         </div>
 
         <hr>
-        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl xl:pt-8 pt-4">From £80</h3>
+        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl pt-4">Total £80</h3>
+        <a href="https://calendar.app.google/n6jfj1dXiKmJoh6D6">
+          <Button class="bg-[#B8A16B] hover:bg-transparent hover:text-[#B8A16B] text-xl text-white px-12 py-4 dark:hover:bg-transparent border border-[#B8A16B] mt-4">
+              Reserve
+            </Button>
+        </a>
 
         </div>
 
@@ -499,8 +469,8 @@ needs and aspirations.</p>
         </div>  
        </div>
 
-         <!-- 5 Treatment  -->
-       <div class="flex lg:flex-row flex-col items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10 pt-20">
+        <!-- 4 Treatment  -->
+       <div id="Service4" class="flex lg:flex-row flex-col items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10 pt-20">
         <div class="lg:w-2/3 w-full" data-aos="fade-up"
      data-aos-duration="3000">
           <img src="./assets/img/massage.png" class="w-full" alt="">
@@ -509,12 +479,14 @@ needs and aspirations.</p>
         <div class="lg:w-1/3 w-full" data-aos="fade-down"
      data-aos-duration="3000">
           <div>
-          <p class="text-[#B8A16B] text-lg">05</p>
-          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Cavitation Fusion</h2>
-          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">A cutting-edge contouring treatment that unites three techniques: ultrasonic cavitation to break down fat cells, radiofrequency to tighten the skin, and targeted massage to sculpt and smooth. A refined, non-invasive ritual for visible reshaping and lasting definition.</p>
+          <p class="text-[#B8A16B] text-lg">04</p>
+          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Post-op</h2>
+          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">Gentle renewal through specialised care. A dedicated time for rest, healing, and guided recovery following surgery. Focused on comfort, gradual mobility, and personalised support.</p>
+            <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6"><i class="fa-solid fa-clock"></i> &nbsp; 60 min appointments</p>
+            <!-- <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-2"><i class="fa-solid fa-money-check"></i> &nbsp; £50.00</p> -->
             </div>
 
-          <div class="flex justify-between xl:pb-8 pb-4">
+          <div class="flex justify-between pb-4">
             <div>
           <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Faster recovery</p>
           <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Pain relief</p>
@@ -526,15 +498,183 @@ needs and aspirations.</p>
         </div>
 
         <hr>
-        <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl xl:pt-8 pt-4">From £90</h3>
+          <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl pt-4">Total £80</h3>
+          <a href="https://calendar.app.google/zyPt1AUKfYCNw34EA">
+        <Button class="bg-[#B8A16B] hover:bg-transparent hover:text-[#B8A16B] text-xl text-white px-12 py-4 dark:hover:bg-transparent border border-[#B8A16B] mt-4">
+              Reserve
+            </Button>
+            </a>
+        </div>       
+       </div>
+
+       <!-- 5 Treatment  -->
+       <div id="Service5" class="flex lg:flex-row flex-col-reverse items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10 pt-20">
+        <div class="lg:w-1/3 w-full" data-aos="fade-up"
+     data-aos-duration="3000">
+          <div>
+          <p class="text-[#B8A16B] text-lg">05</p>
+          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Prenatal Massage</h2>
+          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">A soothing, tailored massage designed specifically for expectant mothers. This gentle treatment helps relieve pregnancy-related discomforts such as lower back pain, swollen legs, and fatigue, while promoting relaxation and overall well-being. Performed with safe techniques and proper support cushions to ensure comfort and safety at every stage of pregnancy.</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6"><i class="fa-solid fa-clock"></i> &nbsp; 45 min appointments</p>
+          <!-- <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-2"><i class="fa-solid fa-money-check"></i> &nbsp; £50.00</p> -->
+            </div>
+
+          <div class="flex justify-between pb-4">
+            <div>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Body contouring</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Skin tightening</p>
+          </div>
+           <div>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Cellulite reduction</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Natural sculpting</p>
+          </div>
+        </div>
+
+        <hr>
+            <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl pt-4">Toal £450</h3>
+            <a href="https://calendar.app.google/ZsAmpyZGnuiGTukW6">
+        <Button class="bg-[#B8A16B] hover:bg-transparent hover:text-[#B8A16B] text-xl text-white px-12 py-4 dark:hover:bg-transparent border border-[#B8A16B] mt-4">
+              Reserve
+            </Button>
+        </a>
+
+        </div>
+
+         <div class="lg:w-2/3 w-full" data-aos="fade-down"
+     data-aos-duration="3000">
+          <img src="./assets/img/spon.png" class="w-full" alt="">
+        </div>  
+       </div>
+
+         <!-- 6 Treatment  -->
+       <div id="Service6" class="flex lg:flex-row flex-col items-center 2xl:gap-24 xl:gap-12 gap-6 xl:pt-20 lg:pt-10 pt-20">
+        <div class="lg:w-2/3 w-full" data-aos="fade-up"
+     data-aos-duration="3000">
+          <img src="./assets/img/massage.png" class="w-full" alt="">
+        </div>  
+
+        <div class="lg:w-1/3 w-full" data-aos="fade-down"
+     data-aos-duration="3000">
+          <div>
+          <p class="text-[#B8A16B] text-lg">06</p>
+          <h2 class="text-[#B8A16B] 2xl:text-4xl xl:text-3xl text-2xl pt-4">Cavitation Fusion</h2>
+          <p class="xl:text-lg text-base text-[#737373] xl:leading-8 leading-7 xl:pt-6 pt-2">A high-performance body contouring treatment that combines advanced cavitation technology with manual lymphatic drainage for optimal results. The cavitation targets stubborn fat deposits through ultrasound waves, breaking them down safely and non-invasively. The session is complemented by gentle manual lymphatic massage to stimulate the body’s natural detox process, reduce fluid retention, and enhance slimming effects. Perfect for sculpting, detoxifying, and promoting overall body balance  in a luxurious and supportive environment.</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6"><i class="fa-solid fa-clock"></i> &nbsp; 90 min appointments</p> 
+          <!-- <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-2"><i class="fa-solid fa-money-check"></i> &nbsp; £50.00</p> -->
+            </div>
+
+          <div class="flex justify-between pb-4">
+            <div>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Faster recovery</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Pain relief</p>
+          </div>
+           <div>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Scar tissue reduction</p>
+          <p class="xl:text-lg text-base text-[#B8A16B] xl:leading-8 leading-7 pt-6">• Improved healing</p>
+          </div>
+        </div>
+
+        <hr>
+         <h3 class="text-[#B8A16B] font-medium 2xl:text-[42px] xl:text-3xl text-xl pt-4">From £90</h3>
+         <a href="https://calendar.app.google/BVkXQgQ5Z9zkqokFA">
+        <Button class="bg-[#B8A16B] hover:bg-transparent hover:text-[#B8A16B] text-xl text-white px-12 py-4 dark:hover:bg-transparent border border-[#B8A16B] mt-4">
+              Reserve
+            </Button>
+       </a>
 
         </div>
         
        </div>
 </section>
 
+
+<!-- card section  -->
+<section id="explore" class="2xl:px-36 md:px-10 px-5 xl:pt-40 pt-20">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  <!-- Card 1 -->
+   <a href="#Service1">
+  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
+     data-aos-duration="3000">
+    <img src="./assets/img/card1.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Lymphatic Drainage</h2>
+      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Lightness and flow, naturally restored.</p>
+    </div>
+  </div>
+  </a>
+
+  <!-- Card 2 -->
+   <a href="#Service3">
+  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
+     data-aos-duration="3000">
+    <img src="./assets/img/card2.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Maderotherapy</h2>
+      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Sculpted contours, refined and toned.</p>
+    </div>
+  </div>
+  </a>
+
+  <!-- Card 3 -->
+   <a href="#Service4">
+  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
+     data-aos-duration="3000">
+    <img src="./assets/img/card3.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Post-Op Recovery</h2>
+      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Gentle renewal through specialised care.</p>
+    </div>
+  </div>
+  </a>
+
+  <!-- Card 4 -->
+   <a href="#Service5">
+  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
+     data-aos-duration="3000">
+    <img src="./assets/img/card4.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Prenatal Massage</h2>
+      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Tender comfort for mothers-to-be.</p>
+    </div>
+  </div>
+  </a>
+
+  <!-- Card 5 -->
+   <a href="#Service6">
+  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
+     data-aos-duration="3000">
+    <img src="./assets/img/card5.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">Cavitation Fusion</h2>
+      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Advanced sculpting with visible elegance.</p>
+    </div>
+  </div>
+  </a>
+
+  <!-- Card 6 -->
+   <a href="">
+  <div class="relative group overflow-hidden rounded-lg" data-aos="fade-up"
+     data-aos-duration="3000">
+    <img src="./assets/img/card6.png" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+    <div class="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300"></div>
+    <div class="absolute bottom-4 left-4 text-white">
+      <h2 class="xl:text-[40px] md:text-3xl text-2xl font-medium text-[#FCFCF8] uppercase">The Elysian Experience</h2>
+      <p class="xl:text-lg text-base text-[#FCFCF8CC] font-light pt-2">Well-being, perfected in Kensington.</p>
+    </div>
+  </div>
+  </a>
+</div>
+
+</section>
+
 <!-- About the treatment form section  -->
-<section class="xl:px-36 md:px-10 px-5 xl:pt-40 pt-20">
+<!-- <section class="xl:px-36 md:px-10 px-5 xl:pt-40 pt-20">
   <div>
   <h1 class="text-[#B8A16B] text-center 2xl:text-7xl xl:text-6xl lg:text-5xl text-4xl font-medium">READY TO BEGIN YOUR <br>
 WELLNESS JOURNEY OR <br>
@@ -563,7 +703,7 @@ treatments, pricing information, or consultation scheduling.</p>
             <button class="text-white bg-[#B8A16B] text-lg py-2 px-8 ">Send</button>
           </div>
         </form>
-</section>
+</section> -->
 
 <!-- visit section  -->
 <section class="xl:px-36 md:px-10 px-5 xl:pt-40 pt-20">
@@ -761,6 +901,31 @@ own skin."</p>
 </footer>
 
 
+
+<!-- Sticky Social Icons with Hover Labels -->
+<div class="fixed bottom-10 lg:right-9 right-5 z-50 flex flex-col items-center space-y-3">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/447400398886?text=Hello%20I%20want%20to%20know%20more" target="_blank"
+     class="group flex items-center bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105">
+    <span class="p-3 whatsapp-float">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </span>
+  </a>
+
+  <!-- Clendy -->
+  <!-- <a href="https://calendly.com/treeconnect?locale=en" target="_blank"
+     class="group flex items-center bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105">
+    <span class="p-3">
+     
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" />
+      </svg>
+    </span>
+  </a> -->
+
+</div>
+
 <!-- counter js   -->
     <script>
       const counters = document.querySelectorAll(".counter");
@@ -794,7 +959,7 @@ own skin."</p>
       
 <!-- Navbar JS -->
 <script>
-    const menuBtn = document.getElementById('menu-btn');
+const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const lines = menuBtn.querySelectorAll('span');
 const darkToggles = document.querySelectorAll('.dark-toggle');
@@ -878,33 +1043,6 @@ menuLinks.forEach(link => {
 
 </script>
 
-<!-- smoth scrool  -->
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute("href").substring(1);
-    const targetSection = document.getElementById(targetId);
-
-    if (targetSection) {
-      window.scrollTo({
-        top: targetSection.offsetTop - 80, // Navbar height adjust karo
-        behavior: "smooth"
-      });
-    }
-
-    // Mobile menu close after click
-    if (window.innerWidth < 1024) {
-      mobileMenu.classList.add('hidden');
-      lines[0].style.transform = 'rotate(0) translate(0, 0)';
-      lines[1].style.opacity = '1';
-      lines[2].style.transform = 'rotate(0) translate(0, 0)';
-      isOpen = false;
-    }
-  });
-});
-
-</script>
 <!-- dark mood  -->
      <script>
       function toggleDarkMode() {
